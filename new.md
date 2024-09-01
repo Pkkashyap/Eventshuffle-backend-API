@@ -245,7 +245,7 @@ GET /api/v1/event/{id}/results
 
 ## Status Codes
 
-Events API returns the following status codes in its API:
+Gophish returns the following status codes in its API:
 
 | Status Code | Description             |
 | :---------- | :---------------------- |
