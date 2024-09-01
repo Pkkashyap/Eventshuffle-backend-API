@@ -2,11 +2,11 @@
 
 ## run eventshuffle in local guide
 
--> latest version of node
--> Monogdb compass in local running on port = 27017 (it should be by default)
--> clone this git
--> npm install
--> npm run dev
+latest version of node
+Monogdb compass in local running on port = 27017 (it should be by default)
+clone this git
+npm install
+npm run dev
 
 ## Postman API collection to save time
 
