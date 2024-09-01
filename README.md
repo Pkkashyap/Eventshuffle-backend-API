@@ -1,30 +1,40 @@
-# Eventshuffle backend API
+# Introduction
 
-## run eventshuffle in local guide
+Eventshuffle is an application to help scheduling events with friends, quite like http://doodle.com/ but in a much simplified way. An event is created by posting a name and suitable dates to the backend, events can be queried from the backend and participants can submit dates suitable for them.
 
-latest version of node
-Monogdb compass in local running on port = 27017 (it should be by default)
-clone this git
-npm install
-npm run dev
+## Use Cases
 
-## Postman API collection to save time
+Create Event:
 
-https://www.postman.com/DominicKashyap/workspace/event-open-apis
+A user wants to create a new event by providing a name and a list of potential dates. The system checks for existing events with the same name and validates the date format. If the event is unique, it is saved, and a unique event ID is returned.
+
+List Events:
+
+A user requests to see a list of all available events. The system retrieves and displays the names and IDs of all events in the database, allowing users to choose an event to view or manage.
+
+View Event Details:
+
+A user selects an event by its ID to view detailed information, including the event's name, the proposed dates, and the list of votes for each date. If the event exists, the system returns the details; otherwise, it returns an error indicating the event is not found.
+
+Add Vote to Event:
+
+A participant selects an event and submits their preferred dates. The system validates the dates against the event's available dates, adds the participant's vote, and updates the event's vote tally accordingly.
+
+View Event Results:
+
+A user requests the results for a specific event, where the system analyzes votes to identify dates that are suitable for all participants. The system returns a list of these suitable dates or informs the user if no common dates were found.
+
+## Responses
 
 ## List all events
 
-Endpoint: `/api/v1/event/list`
-
-### Request
-
-Method: `GET`
-
-### Response
-
-Body:
-
+```http
+GET /api/v1/event/list
 ```
+
+Response
+
+```javascript
 {
   "events": [
     {
@@ -45,11 +55,9 @@ Body:
 
 ## Create an event
 
-Endpoint: `/api/v1/event`
-
-### Request
-
-Method: `POST`
+```http
+POST /api/v1/event/list
+```
 
 Body:
 
@@ -64,25 +72,28 @@ Body:
 }
 ```
 
-### Response
+| Parameter | Type       | Description  |
+| :-------- | :--------- | :----------- |
+| `name`    | `string`   | **Required** |
+| `dates`   | `string[]` | **Required** |
 
-Body:
+Response
 
-```
+```javascript
 {
-  "id": 0
+  "id": 66d445e46de3486087f2123e
 }
 ```
 
 ## Show an event
 
-Endpoint: `/api/v1/event/{id}`
+```http
+GET /api/v1/event/{id}
+```
 
-### Request
-
-Method: `GET`
-
-Parameters: `id`, `long`
+| Parameter | Type   | Description  |
+| :-------- | :----- | :----------- |
+| `id`      | `long` | **Required** |
 
 ### Response
 
@@ -111,15 +122,49 @@ Body:
 }
 ```
 
+### Response
+
+```
+{
+  "id": 0,
+  "name": "Jake's secret party",
+  "dates": [
+    "2014-01-01",
+    "2014-01-05",
+    "2014-01-12"
+  ],
+  "votes": [
+    {
+      "date": "2014-01-01",
+      "people": [
+        "John",
+        "Julia",
+        "Paul",
+        "Daisy",
+        "Dick"
+      ]
+    },
+    {
+      "date": "2014-01-05",
+      "people": [
+        "Dick"
+      ]
+    }
+  ]
+}
+```
+
 ## Add votes to an event
 
-Endpoint: `/api/v1/event/{id}/vote`
+```http
+POST /api/v1/event/{id}/vote
+```
 
-### Request
-
-Method: `POST`
-
-Parameters: `id`, `long`
+| Parameter | Type       | Description  |
+| :-------- | :--------- | :----------- |
+| `id`      | `long`     | **Required** |
+| `name`    | `string`   | **Required** |
+| `dates`   | `string[]` | **Required** |
 
 Body:
 
@@ -167,14 +212,15 @@ Body:
 
 ## Show the results of an event
 
-Endpoint: `/api/v1/event/{id}/results`
 Responds with dates that are **suitable for all participants**.
 
-### Request
+```http
+GET /api/v1/event/{id}/results
+```
 
-Method: `GET`
-
-Parameters: `id`, `long`
+| Parameter | Type   | Description  |
+| :-------- | :----- | :----------- |
+| `id`      | `long` | **Required** |
 
 ### Response
 
@@ -196,3 +242,15 @@ Parameters: `id`, `long`
   ]
 }
 ```
+
+## Status Codes
+
+Gophish returns the following status codes in its API:
+
+| Status Code | Description             |
+| :---------- | :---------------------- |
+| 200         | `OK`                    |
+| 201         | `CREATED`               |
+| 400         | `BAD REQUEST`           |
+| 404         | `NOT FOUND`             |
+| 500         | `INTERNAL SERVER ERROR` |
