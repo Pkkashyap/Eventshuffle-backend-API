@@ -278,6 +278,10 @@ GET /api/v1/event/{id}/results
 }
 ```
 
+## Postman api collection
+
+https://www.postman.com/DominicKashyap/workspace/event-open-apis
+
 ## Status Codes
 
 Events API returns the following status codes in its API:
