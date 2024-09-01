@@ -2,6 +2,41 @@
 
 Eventshuffle is an application to help scheduling events with friends, quite like http://doodle.com/ but in a much simplified way. An event is created by posting a name and suitable dates to the backend, events can be queried from the backend and participants can submit dates suitable for them.
 
+## Prerequisites
+
+To run this project locally, ensure you have the following installed:
+
+- **Node.js**: The latest version of Node.js.
+- **MongoDB Compass**: Ensure MongoDB is running locally on port `27017` (this is the default port).
+
+## Getting Started
+
+Follow these steps to get the project running on your local machine:
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/Pkkashyap/Eventshuffle-backend-API.git
+   cd eventshuffle
+   ```
+
+2. **Install Dependencies**
+
+   ```bash
+   npm install
+
+   ```
+
+3. **Start the Development Server**
+
+   ```bash
+   npm run dev
+
+   ```
+
+4. **Start the Development Server**
+   Open your browser and navigate to http://localhost:5001 (or the port specified in your environment configuration) to start using Eventshuffle.
+
 ## Use Cases
 
 Create Event:
