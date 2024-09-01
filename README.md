@@ -17,7 +17,7 @@ Follow these steps to get the project running on your local machine:
 
    ```bash
    git clone https://github.com/Pkkashyap/Eventshuffle-backend-API.git
-   cd Eventshuffle backend API
+   cd Eventshuffle-backend-API
    ```
 
 2. **Install Dependencies**
