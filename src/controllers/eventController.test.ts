@@ -2,6 +2,7 @@ import { EventController } from "./EventController";
 import { IEventService } from "../services/interfaces/IEventService";
 import { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
+
 describe("EventController", () => {
   let eventController: EventController;
   let mockEventService: jest.Mocked<IEventService>;

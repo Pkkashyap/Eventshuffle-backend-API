@@ -16,18 +16,22 @@ export const createEventRouter = (eventService = new EventService()) => {
     validateEventCreation,
     eventController.createEvent.bind(eventController)
   );
+
   router.get("/list", eventController.listEvents.bind(eventController));
+
   router.get(
     "/:id",
     validateEventId,
     eventController.showEvent.bind(eventController)
   );
+
   router.post(
     "/:id/vote",
     validateEventId,
     validateVote,
     eventController.addVote.bind(eventController)
   );
+
   router.get(
     "/:id/results",
     validateEventId,

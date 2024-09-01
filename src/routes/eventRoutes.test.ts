@@ -3,7 +3,7 @@ import express from "express";
 import { createEventRouter } from "./EventRoutes";
 import { EventService } from "../services/EventService";
 import mongoose from "mongoose";
-// import app from "../app";
+
 jest.mock("../services/EventService");
 
 const app = express();
