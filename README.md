@@ -27,8 +27,11 @@ Follow these steps to get the project running on your local machine:
    then edit and suitable settings like this
 
    JWT_SECRET="adding you secret here"
+
    MONGO_URI=mongodb://127.0.0.1:27017
+
    DB_NAME=eventshuffle
+
    PORT=5001
 
 3. **Install Dependencies**
