@@ -27,7 +27,6 @@ export class AuthService {
       throw new Error("Invalid credentials");
     }
 
-    console.log("priocec", process.env.JWT_SECRET);
     const token = jwt.sign(
       { _id: user._id, username: user.username },
       process.env.JWT_SECRET as string,
