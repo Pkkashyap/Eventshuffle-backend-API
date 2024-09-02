@@ -1,12 +1,5 @@
-import mongoose, { Schema, Types } from "mongoose";
-
-export interface IPerson {
-  _id: Types.ObjectId;
-  name: string;
-}
-
-const personSchema: Schema = new Schema({
-  name: { type: String, required: true },
-});
+import mongoose from "mongoose";
+import personSchema from "../schemas/personSchema";
+import IPerson from "../schemas/interface/IPerson";
 
 export const Person = mongoose.model<IPerson>("Person", personSchema);

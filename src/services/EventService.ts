@@ -1,7 +1,10 @@
 import { IEventService } from "./interfaces/IEventService";
-import { IEvent, Event } from "../models/eventModel";
-import { Person, IPerson } from "../models/personModel";
-import { Vote, IVote } from "../models/voteModel";
+import { Event } from "../models/eventModel";
+import IEvent from "../schemas/interface/IEvent";
+import IPerson from "../schemas/interface/IPerson";
+import { Person } from "../models/personModel";
+import { Vote } from "../models/voteModel";
+import IVote from "../schemas/interface/IVote";
 import mongoose from "mongoose";
 
 export class EventService implements IEventService {

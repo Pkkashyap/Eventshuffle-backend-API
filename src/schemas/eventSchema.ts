@@ -1,12 +1,9 @@
 import { Schema } from "mongoose";
+import IEvent from "./interface/IEvent";
 
-export const voteSchema = new Schema({
-  date: { type: String, required: true },
-  people: [{ type: String }],
-});
-
-export const eventSchema = new Schema({
-  name: { type: String, required: true },
+const eventSchema: Schema<IEvent> = new Schema({
+  name: { type: String, required: true, unique: true },
   dates: [{ type: String, required: true }],
-  votes: [voteSchema],
 });
+
+export default eventSchema;
