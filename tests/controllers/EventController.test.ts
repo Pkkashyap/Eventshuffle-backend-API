@@ -1,5 +1,5 @@
-import { EventController } from "./EventController";
-import { IEventService } from "../services/interfaces/IEventService";
+import { EventController } from "../../src/controllers/EventController";
+import { IEventService } from "../../src/services/interfaces/IEventService";
 import { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
 

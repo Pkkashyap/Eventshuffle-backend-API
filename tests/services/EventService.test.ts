@@ -1,11 +1,11 @@
-import { EventService } from "./EventService";
-import { Event } from "../models/eventModel";
-import { Person } from "../models/personModel";
-import { Vote } from "../models/voteModel";
+import { EventService } from "../../src/services/EventService";
+import { Event } from "../../src/models/eventModel";
+import { Person } from "../../src/models/personModel";
+import { Vote } from "../../src/models/voteModel";
 
-jest.mock("../models/eventModel");
-jest.mock("../models/personModel");
-jest.mock("../models/voteModel");
+jest.mock("../../src/models/eventModel");
+jest.mock("../../src/models/personModel");
+jest.mock("../../src/models/voteModel");
 
 describe("EventService", () => {
   let eventService: EventService;

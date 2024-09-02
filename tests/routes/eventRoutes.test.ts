@@ -1,10 +1,10 @@
 import request from "supertest";
 import express from "express";
-import { createEventRouter } from "./EventRoutes";
-import { EventService } from "../services/EventService";
+import { createEventRouter } from "../../src/routes/EventRoutes";
+import { EventService } from "../../src/services/EventService";
 import mongoose from "mongoose";
 
-jest.mock("../services/EventService");
+jest.mock("../../src/services/EventService");
 
 const app = express();
 
