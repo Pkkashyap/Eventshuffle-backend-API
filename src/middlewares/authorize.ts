@@ -10,7 +10,6 @@ export const authorize = (req: Request, res: Response, next: NextFunction) => {
       .json({ message: "Access denied. No token provided." });
   }
 
-  console.log(process.env.JWT_SECRET, "sdsd");
   try {
     const decoded = jwt.verify(
       token.split(" ")[1],
