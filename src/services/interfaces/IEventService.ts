@@ -1,4 +1,4 @@
-import { IEvent } from "../../models/eventModel";
+import IEvent from "../../schemas/interface/IEvent";
 import mongoose from "mongoose";
 
 export interface IEventService {
