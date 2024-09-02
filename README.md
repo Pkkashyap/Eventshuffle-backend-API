@@ -20,21 +20,32 @@ Follow these steps to get the project running on your local machine:
    cd Eventshuffle-backend-API
    ```
 
-2. **Install Dependencies**
+2. **Edit .env.example**
+
+   rename [.env.example] file to [.env]
+
+   then edit and suitable settings like this
+
+   JWT_SECRET="adding you secret here"
+   MONGO_URI=mongodb://127.0.0.1:27017
+   DB_NAME=eventshuffle
+   PORT=5001
+
+3. **Install Dependencies**
 
    ```bash
    npm install
 
    ```
 
-3. **Start the Development Server**
+4. **Start the Development Server**
 
    ```bash
    npm run dev
 
    ```
 
-4. **Start the Development Server**
+5. **Start the Development Server**
    Open your browser and navigate to http://localhost:5001 (or the port specified in your environment configuration) to start using Eventshuffle.
 
 ## Use Cases
@@ -59,12 +70,66 @@ View Event Results:
 
 A user requests the results for a specific event, where the system analyzes votes to identify dates that are suitable for all participants. The system returns a list of these suitable dates or informs the user if no common dates were found.
 
-## Responses
+## Authorize API's
+
+## Register user
+
+```http
+POST /api/v1/auth/register
+```
+
+Body:
+
+```
+{
+    "username":"anyUserName",
+    "password":"anypassword"
+}
+```
+
+Response
+
+```javascript
+{
+    "message": "User registered successfully"
+}
+```
+
+## Login user and get the token
+
+```http
+POST /api/v1/auth/login
+```
+
+Body:
+
+```
+{
+    "username":"your-username",
+    "password":"your-password"
+}
+```
+
+Response
+
+```javascript
+{
+    "token": "eyJhbGciOiJIUIsInR5cCI6IkpXVCJ9asdasdadad234adf235"
+}
+```
+
+## Responses for Events API's
 
 ## List all events
 
 ```http
 GET /api/v1/event/list
+```
+
+Header:
+
+```
+Authorization : Bearer eyJhbGciOiJIUIsInR5cCI6IkpXVCJ9asdasdadad234adf235
 ```
 
 Response
@@ -92,6 +157,12 @@ Response
 
 ```http
 POST /api/v1/event/list
+```
+
+Header:
+
+```
+Authorization : Bearer eyJhbGciOiJIUIsInR5cCI6IkpXVCJ9asdasdadad234adf235
 ```
 
 Body:
@@ -124,6 +195,12 @@ Response
 
 ```http
 GET /api/v1/event/{id}
+```
+
+Header:
+
+```
+Authorization : Bearer eyJhbGciOiJIUIsInR5cCI6IkpXVCJ9asdasdadad234adf235
 ```
 
 | Parameter | Type   | Description  |
@@ -195,6 +272,12 @@ Body:
 POST /api/v1/event/{id}/vote
 ```
 
+Header:
+
+```
+Authorization : Bearer eyJhbGciOiJIUIsInR5cCI6IkpXVCJ9asdasdadad234adf235
+```
+
 | Parameter | Type       | Description  |
 | :-------- | :--------- | :----------- |
 | `id`      | `long`     | **Required** |
@@ -251,6 +334,12 @@ Responds with dates that are **suitable for all participants**.
 
 ```http
 GET /api/v1/event/{id}/results
+```
+
+Header:
+
+```
+Authorization : Bearer eyJhbGciOiJIUIsInR5cCI6IkpXVCJ9asdasdadad234adf235
 ```
 
 | Parameter | Type   | Description  |
