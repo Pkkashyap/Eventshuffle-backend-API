@@ -209,33 +209,6 @@ Authorization : Bearer eyJhbGciOiJIUIsInR5cCI6IkpXVCJ9asdasdadad234adf235
 
 ### Response
 
-Body:
-
-```
-{
-  "id": 0,
-  "name": "Jake's secret party",
-  "dates": [
-    "2014-01-01",
-    "2014-01-05",
-    "2014-01-12"
-  ],
-  "votes": [
-    {
-      "date": "2014-01-01",
-      "people": [
-        "John",
-        "Julia",
-        "Paul",
-        "Daisy"
-      ]
-    }
-  ]
-}
-```
-
-### Response
-
 ```
 {
   "id": 0,
